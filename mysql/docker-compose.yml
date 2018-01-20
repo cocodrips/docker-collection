@@ -1,0 +1,16 @@
+version: '3'
+services:
+  # connect command -> mysql -h 0.0.0.0 --port 13306 -u root -p
+  db:
+    image: mysql
+    restart: always
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+    environment:
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: root      
+      MYSQL_DATABASE: project
+      TZ: "Asia/Tokyo"
+    ports:
+      - 13306:3306
+#    volumes:
+#      - data:/var/lib/mysql
